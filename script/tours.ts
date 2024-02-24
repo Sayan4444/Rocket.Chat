@@ -7,6 +7,7 @@ import createEndPoint from './createEndPoint';
 import createDBModel from './createDBModel';
 import useDBModel from './useDBModel';
 import services from './services';
+import addNewService from './addNewService';
 import { fileNames } from './utils';
 
 async function main() {
@@ -22,6 +23,7 @@ async function main() {
 			createDBModel(),
 			useDBModel(),
 			services(),
+			addNewService(),
 		]);
 		console.log(toursObjArray);
 
