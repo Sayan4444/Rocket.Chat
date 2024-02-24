@@ -3,42 +3,45 @@ import { createStep } from './utils';
 export default async function useDBModel() {
 	const steps = await Promise.all([
 		{
-			directory: 'apps/meteor/server/models',
+			directory: 'apps/meteor/server/methods',
 			description:
-				'## How to create a DB Model \n\n### Rocket.Chat server relies on MongoDB as its primary database to store crucial information such as chat messages, user data, system configurations, and other related data. MongoDB plays a vital role in maintaining and organizing the essential information that powers Rocket.Chat.\n\n### Files like assets, user files, images, and other media files are stored locally on the system running the server or over network services like Amazon S3, and WebDAV.\n\n### Let us explore and see how can anyone create a new Database model, Here I will be giving example of Messages model and how things inside it works.',
+				'## How to use a DB model\n\n### We discussed about how to create a DB model in previous tour, Here we would be learning how to use a DB model\n\n### Let us Learn how to use DB model by taking an example of loading older messages in channels, This is an meteor method, which is called when we scroll up and try to load older messages (/api/v1/method.call/loadHistory)',
 		},
 		createStep({
-			file: 'apps/meteor/server/models/raw/Messages.ts',
+			file: 'apps/meteor/server/methods/loadHistory.ts',
 			description:
-				'## Messages Model\n\n- **Firstly we start by importing some important components and modules such as BaseRaw which contains Operations related to Database model.**\n\n- **We have *Rooms* model imported from *@rocket.chat/models* which is again a model like we are looking at right now, Checkout [Rooms](./apps/meteor/server/models/raw/Rooms.ts) Model**\n\n- **We also have imports from model-typings such as FindPaginated and IMessageModel which have type definitions for the model**\n\n- **We have multiple imports from mongodb as *AggregationCursor, Collection, FindCursor, UpdateResult, etc.* which help in mongodb operations**',
-			searchString: 'type DeepWritable<T> = T extends (...args: any) => any',
-			offset: -1,
+				'## loadHistory Endpoint\n\n### Here We hava an meteor endpoint which takes rid, end, limit, ls, showThreadMessage as argument, This method is responsible for rendering older messages \n\n- You can go through the methods used below they are quiet easy to understand',
+			searchString: 'async loadHistory(rid, end, limit = 20, ls, showThreadMessages = true) {',
 		}),
 		createStep({
-			file: 'apps/meteor/server/models/raw/Messages.ts',
+			file: 'apps/meteor/server/methods/loadHistory.ts',
 			description:
-				"## MessagesRaw class\n\n- **To register a DB model in Rocket.Chat, it is necessary to create a corresponding class for that model. In our case, as we are creating the Messages Model, we need to define a class specifically for it. This class will serve as the blueprint for the Messages Model and will be used for registering and interacting with the corresponding data in the database.**\n\n- **In order to facilitate the management of the Messages Model in Rocket.Chat's database, we have a class called MessageRaw. This class extends the BaseRaw class and implements the IMessageModel interface, which we discussed earlier. By extending BaseRaw and implementing the IMessageModel interface, MessageRaw inherits necessary functionalities and ensures it adheres to the required structure and behavior of the Messages Model in Rocket.Chat.**",
-			searchString: 'export class MessagesRaw extends BaseRaw<IMessage> implements IMessagesModel {',
+				'## The LoadMessageHistory \n\n### LoadMessageHistory function is called here and it takes userId, rid, end, limit, ls, showThreadMessages',
+			searchString: 'return loadMessageHistory({ userId: fromId, rid, end, limit, ls, showThreadMessages });',
 		}),
 		createStep({
-			file: 'apps/meteor/server/models/raw/Messages.ts',
+			file: 'apps/meteor/app/lib/server/functions/loadMessageHistory.ts',
 			description:
-				'## Methods and Operations\n\n### From here onwards there are multiple methods and operations related with Message Model you can go through each of them and try to undestand what are they doing, It is easy to understand them.\n\n- **There are multiple methods such as**\n    - ***findStarredByUserAtRoom***\n    - ***findLivechatMessages***\n    - ***findStarred***\n    - ***setMessageAttachments***\n    - ***getMessageByFileIdAndUsername***\n    - and many more',
-			searchString:
-				"findVisibleByMentionAndRoomId(username: IUser['username'], rid: IRoom['_id'], options?: FindOptions<IMessage>): FindCursor<IMessage> {",
-			offset: -1,
+				'## loadMessageHistory function\n\n### Here we import Messages and Rooms DB models from @rocket.chat/models and we will furhter use them in our function\n\n',
+			searchString: "import { Messages, Rooms } from '@rocket.chat/models';",
 		}),
 		createStep({
-			file: 'apps/meteor/server/models/Messages.ts',
+			file: 'apps/meteor/app/lib/server/functions/loadMessageHistory.ts',
 			description:
-				'## Registering a DB model\n\n### Now let us see how can we register any DB model\n\n### 1 - First of all we need to import *registerModel* from *@rocket.chat/models*\n\n### 2 - Import MessagesRaw- The DB model Class we created which includes operations, and we are also importing db, trashCollection- It contains deleted messages',
-			searchString: "import { registerModel } from '@rocket.chat/models';",
+				"## Explanation\n\n- The loadMessageHistory function is responsible for retrieving a history of messages from a specific room in Rocket.Chat. It accepts several parameters including the user ID, room ID, end timestamp, limit, last seen timestamp, whether to show thread messages, and offset.\n\n- First, it fetches the room using the provided room ID and checks if it exists. If the room doesn't exist, an error is thrown.\n\n- Next, it determines the types of hidden system messages for the room.\n\n- Then, it defines options for querying the messages, including sorting by timestamp in descending order, applying the limit and offset.",
+			searchString: 'export async function loadMessageHistory({',
 		}),
 		createStep({
-			file: 'apps/meteor/server/models/Messages.ts',
+			file: 'apps/meteor/app/lib/server/functions/loadMessageHistory.ts',
 			description:
-				"## Registering\n\n### Here we are using the registerModel import and passing 'IMessageModel' and then we pass in db and trashCollection into MessageRaw Class\n\n### The register model function looks something like this -\n```\nfunction registerModel<TModel extends IBaseModel<any, any, any>>(name: string, instance: TModel | (() => TModel)): void;\n```\n\n### And we pass data into it like - \n```\n registerModel('IMessagesModel', new MessagesRaw(db, trashCollection));\n //It becomes something like this, Here IMessageModel is basically implemented in MessagesRaw as we saw in previous steps\n registerModel<MessagesRaw>(name: string, instance: MessagesRaw | (() => MessagesRaw)): void\n```",
-			searchString: "registerModel('IMessagesModel', new MessagesRaw(db, trashCollection));",
+				"## Explanation 2\n\n- Based on the provided end timestamp, it retrieves visible messages before that timestamp, excluding the hidden message types. If no end timestamp is provided, it retrieves all visible messages in the room, excluding hidden message types.\n\n- The retrieved records are then normalized and processed for the specific user, taking into account any restrictions or modifications based on the user's permissions or settings.\n\n- If a last seen timestamp is provided, it checks if there are unread messages after that timestamp. If there are unread messages, it retrieves the first unread message and calculates the total count of unread messages that are not loaded yet.\n\n- Finally, it returns an object containing the retrieved messages, the first unread message, and the count of unread messages that are not loaded.",
+			searchString: 'const records = end',
+		}),
+		createStep({
+			file: 'apps/meteor/app/lib/server/functions/loadMessageHistory.ts',
+			description:
+				'## Returns\n\n### In the end it returns messages, firstUnread, unreadNotLoaded you can go through the code above its easy to understand',
+			searchString: 'return {',
 		}),
 	]);
 	return {
