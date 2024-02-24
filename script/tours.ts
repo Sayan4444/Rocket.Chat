@@ -8,6 +8,7 @@ import createDBModel from './createDBModel';
 import useDBModel from './useDBModel';
 import services from './services';
 import addNewService from './addNewService';
+import createNewPackage from './createNewPackage';
 import { fileNames } from './utils';
 
 async function main() {
@@ -24,8 +25,9 @@ async function main() {
 			useDBModel(),
 			services(),
 			addNewService(),
+			createNewPackage(),
 		]);
-		console.log(toursObjArray);
+		// console.log(toursObjArray);
 
 		fileNames.forEach(async (fileName, index) => {
 			const newFile = path.join(newDir, fileName);
