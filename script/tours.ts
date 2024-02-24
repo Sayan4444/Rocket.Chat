@@ -2,6 +2,8 @@ import fs from 'fs/promises';
 import path from 'path';
 import repositoryOverview from './repositoryOverview';
 import messageSentClient from './messageSentClient';
+import messageSentServer from './messageSentServer';
+import createEndPoint from './createEndPoint';
 import { fileNames } from './utils';
 
 async function main() {
@@ -9,7 +11,7 @@ async function main() {
 		const baseDir = path.resolve(__dirname, '..');
 		const newDir = path.join(baseDir, '.tours');
 		await fs.mkdir(newDir, { recursive: true });
-		const toursObjArray = await Promise.all([repositoryOverview(), messageSentClient()]);
+		const toursObjArray = await Promise.all([repositoryOverview(), messageSentClient(), messageSentServer(), createEndPoint()]);
 		console.log(toursObjArray);
 
 		fileNames.forEach(async (fileName, index) => {
