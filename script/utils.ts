@@ -33,7 +33,7 @@ export const fileNames = [
 	'4---how-to-create-an-endpoint.tour',
 	'5---how-to-create-a-db-model.tour',
 	'6---how-to-use-a-db-model.tour',
-	// '7---services.tour',
+	'7---services.tour',
 	// '8---how-to-add-a-new-service.tour',
 	// '9---how-to-create-packages.tour',
 ];

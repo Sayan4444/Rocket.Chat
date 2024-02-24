@@ -6,6 +6,7 @@ import messageSentServer from './messageSentServer';
 import createEndPoint from './createEndPoint';
 import createDBModel from './createDBModel';
 import useDBModel from './useDBModel';
+import services from './services';
 import { fileNames } from './utils';
 
 async function main() {
@@ -20,6 +21,7 @@ async function main() {
 			createEndPoint(),
 			createDBModel(),
 			useDBModel(),
+			services(),
 		]);
 		console.log(toursObjArray);
 
