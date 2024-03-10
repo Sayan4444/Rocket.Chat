@@ -14,7 +14,7 @@
 		"lint": "turbo run lint",
 		"storybook": "yarn workspace @rocket.chat/meteor run storybook",
 		"fuselage": "./fuselage.sh",
-		"tours": "ts-node script/tours.ts"
+		"tours": "ts-node script-tours/index.ts"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.26.2",

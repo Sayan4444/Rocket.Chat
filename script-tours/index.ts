@@ -27,12 +27,12 @@ async function main() {
 			addNewService(),
 			createNewPackage(),
 		]);
-		// console.log(toursObjArray);
 
 		fileNames.forEach(async (fileName, index) => {
 			const newFile = path.join(newDir, fileName);
 			await fs.writeFile(newFile, JSON.stringify(toursObjArray[index], null, 2));
 		});
+		console.log('Tours created successfully');
 	} catch (error: any) {
 		console.log(error.message);
 	}
