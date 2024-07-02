@@ -1,4 +1,4 @@
-import { createStep } from './utils';
+import { createStep } from '../utils';
 
 export default async function messageSentClient() {
 	const baseDir = 'apps/meteor/client/views/room';
@@ -109,7 +109,7 @@ export default async function messageSentClient() {
 	]);
 	return {
 		$schema: 'https://aka.ms/codetour-schema',
-		title: '2 - How a Message is sent (Client side)',
+		title: 'How a Message is sent (Client side)',
 		steps,
 	};
 }

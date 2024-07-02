@@ -1,4 +1,4 @@
-import { createStep } from './utils';
+import { createStep } from '../utils';
 
 export default async function useDBModel() {
 	const steps = await Promise.all([
@@ -46,7 +46,7 @@ export default async function useDBModel() {
 	]);
 	return {
 		$schema: 'https://aka.ms/codetour-schema',
-		title: '6 - How to use a DB model',
+		title: 'How to use a DB model',
 		steps,
 	};
 }

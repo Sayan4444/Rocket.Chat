@@ -1,4 +1,4 @@
-import { createStep } from './utils';
+import { createStep } from '../utils';
 
 export default async function createNewPackage() {
 	const steps = await Promise.all([
@@ -38,7 +38,7 @@ export default async function createNewPackage() {
 	]);
 	return {
 		$schema: 'https://aka.ms/codetour-schema',
-		title: '9 - How to create a Package',
+		title: 'How to create a Package',
 		steps,
 	};
 }

@@ -1,4 +1,4 @@
-import { createStep } from './utils';
+import { createStep } from '../utils';
 
 export default async function repositoryOverview() {
 	const steps = await Promise.all([
@@ -66,7 +66,7 @@ export default async function repositoryOverview() {
 	]);
 	return {
 		$schema: 'https://aka.ms/codetour-schema',
-		title: '1 - Repository-Overview',
+		title: 'Repository Overview',
 		steps,
 	};
 }

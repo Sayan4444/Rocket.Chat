@@ -18,7 +18,7 @@ export default async function services() {
 	]);
 	return {
 		$schema: 'https://aka.ms/codetour-schema',
-		title: '7 - Services',
+		title: 'Services',
 		steps,
 	};
 }

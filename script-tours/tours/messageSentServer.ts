@@ -1,4 +1,4 @@
-import { createStep } from './utils';
+import { createStep } from '../utils';
 
 export default async function messageSentServer() {
 	const steps = await Promise.all([
@@ -78,7 +78,7 @@ export default async function messageSentServer() {
 	]);
 	return {
 		$schema: 'https://aka.ms/codetour-schema',
-		title: '3 - How a Message is sent (The Backend)',
+		title: 'How a Message is sent (The Backend)',
 		steps,
 	};
 }

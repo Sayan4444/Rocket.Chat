@@ -1,4 +1,4 @@
-import { createStep } from './utils';
+import { createStep } from '../utils';
 
 export default async function addNewService() {
 	const steps = await Promise.all([
@@ -35,7 +35,7 @@ export default async function addNewService() {
 	]);
 	return {
 		$schema: 'https://aka.ms/codetour-schema',
-		title: '8 - How to add a new service',
+		title: 'How to add a new service',
 		steps,
 	};
 }

@@ -1,4 +1,4 @@
-import { createStep } from './utils';
+import { createStep } from '../utils';
 
 export default async function createEndPoint() {
 	const steps = await Promise.all([
@@ -72,7 +72,7 @@ export default async function createEndPoint() {
 	]);
 	return {
 		$schema: 'https://aka.ms/codetour-schema',
-		title: '4 - How to Create an Endpoint',
+		title: 'How to Create an Endpoint',
 		steps,
 	};
 }
