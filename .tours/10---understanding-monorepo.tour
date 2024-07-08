@@ -1,0 +1,69 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "10 - Understanding Monorepo Structure of Rocket.Chat",
+  "steps": [
+    {
+      "title": "What is Monorepo?",
+      "description": "## What is Monorepo?\n\nSuppose we are creating an application with a React.js frontend and a Node.js backend. Traditionally, we needed to create two different repositories: one for the frontend and one for the backend. If they share multiple code snippets, we need to make changes in both the repositories or can publish the common modules as a private npm package. To avoid this complexity, we can create a single repository with multiple projects running in it and have a common section where all projects can share the common code.These projects are known as **workspaces** in a monorepo setup. This is the main use case of monorepo. \n\n![](https://res.cloudinary.com/dty2rgx6f/image/upload/v1719945379/Codetours/Understanding%20Monorepo%20Structure%20of%20Rocket.Chat/Polyrepo_vs_Monorepo_isj4qz.png)\n\n#### The other use cases are:-\n- Consistent dependency version of packages used across the project\n- Improved collaboration as all members can view the complete project\n- Streamlines [CI/CD](https://about.gitlab.com/topics/ci-cd/) as a single pipeline can handle all projects deployment\n\n**To learn more click in the given [link](https://semaphoreci.com/blog/what-is-monorepo#:~:text=A%20monorepo%20is%20a%20version,Monorepos%20can%20reach%20colossal%20sizes)**"
+    },
+    {
+      "title": "What is Turborepo?",
+      "description": "## What is Turborepo?\nTurborepo is a tool designed to optimize the development and build process for monorepos. In simple words its monorepo on steroids.\n\nBy default turborepo extends the features presented by monorepo, the extra benefits are\n- **Incremental Builds**- Say we have a 3 workspaces- frontend,backend and common modules running in our turborepo. We made a change in the frontend folder and want to deploy it for production. In a vanilla monorepo setup, it will build each workspaces from the scratch but in turborepo, it builds only the frontend workspace and caches the rest. Turborepo also creates a dependency graph between workspaces. For example, lets say workspace A depends on workspace B (A->B) and we changed the code in A, since B depends on A it will rebuild both A and B. **This vastly reduces build times and simplifies the CI/CD process**    \n- **Individual Scaling** - Each workspace can be individually scaled and even be deployed separately.\n\nFor more understanding please follow the docs [link](https://turbo.build/repo/docs)\n        \n        "
+    },
+    {
+      "file": "package.json",
+      "description": "## Understanding our Repository\n\nNow that we have covered the foundational knowledge, let's dive into understanding how our project operates. This is the root folder, where Turborepo manages all workspaces using the turbo.json file. Here in this package.json, we have the dependencies and scripts that Turborepo requires to run the project.\"",
+      "line": 1
+    },
+    {
+      "file": "package.json",
+      "description": "## Scripts\n\n- **build** Creates the final production build for this entire monorepo. It will also show all the workspaces its about to build and from there you will realize our monorepo has a total of 56 workspaces/packages.\n- **build:services** bulds only the services workspace. Type `\"name\": \"rocketchat-services\"` in the search bar of vs code and the package.json you get is going to be build\n- **build:ci** Runs the `build` command as well as `build:ci` command in the repository. We will understand it better once we understand turbo.json.\n- **testunit** Performs the unit test over the entire repo.\n\n\n**turbo run X** => For basic understanding, we can assume all package.json having a script `X` will be ran. --filter=package.json name means we want to run it in that particular package.json only",
+      "line": 7,
+      "selection": {
+        "start": {
+          "line": 9,
+          "character": 4
+        },
+        "end": {
+          "line": 9,
+          "character": 18
+        }
+      }
+    },
+    {
+      "file": "package.json",
+      "description": "## Workspaces\n\nThese are all the workspaces, or in simple terms, projects, running inside the monorepo. Each runs independently but may also depend on each other.  \n\n**apps/*** -> this means inside the apps folder, all nested folders with a package.json files are individual workspaces. Same goes for these\n```\"packages/*\",\n\t\"ee/apps/*\",\n\t\"ee/packages/*\",\n\t\"apps/meteor/ee/server/services\"```\n\n#### Turborepo standard terms\n**apps** folder contains the main projects which will server the end user\n\n**packages** are the common modules which can be accessed by the workspaces.",
+      "line": 26
+    },
+    {
+      "file": "turbo.json",
+      "description": "## Turbo.json\n\nturbo.json is a configuration file used in Turborepo setups to define and manage the workspaces and their configurations within a monorepo. It manages build process dependencies and other turbo-repo related scripts which we will understand soon.",
+      "line": 1,
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 141
+        },
+        "end": {
+          "line": 3,
+          "character": 246
+        }
+      }
+    },
+    {
+      "file": "turbo.json",
+      "description": "## Pipeline - build\n\nThe name of task is build and its invoked by the command \n\n```yarn run build```\n\n It inspects each package.json file and try to locate a **build** script, executing it wherever its found in a specific order. The results of these builds are cached in their respective dist folders, optimizing subsequent builds for efficiency.",
+      "line": 5
+    },
+    {
+      "file": "turbo.json",
+      "description": "## Pipeline - dsv\n\nThe name of task is dsv and its invoked by the command \n\n```yarn run dsv``` which eventually call the script ```\"dsv\": \"turbo run dsv --filter=@rocket.chat/meteor...\",```\n\nThis has dependency on the \"build\" task and completes it first. Since the cache is false it will create execute the commands from scratch.\n\n--filter specifies that turborepo will only look into package.json folder with a name \"@rocket.chat/meteor\"",
+      "line": 28
+    },
+    {
+      "file": "apps/meteor/package.json",
+      "description": "apps/meteor/package.json\n\nThe turborepo will now execute all its operation only within this folder and all its nested folders.",
+      "line": 2
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-type StepObj = {
+export type StepObj = {
 	file: string;
 	description: string;
 	searchString: string;
@@ -36,4 +36,5 @@ export const fileNames = [
 	'services.tour',
 	'how-to-add-a-new-service.tour',
 	'how-to-create-packages.tour',
+	'understanding-monorepo.tour',
 ];

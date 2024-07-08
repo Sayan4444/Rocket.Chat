@@ -32,5 +32,6 @@
 		"searchbox",
 		"tmid",
 		"tshow"
-	]
+	],
+	"comments.maxHeight": false
 }

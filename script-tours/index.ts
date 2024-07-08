@@ -10,6 +10,7 @@ import messageSentClient from './tours/messageSentClient';
 import messageSentServer from './tours/messageSentServer';
 import services from './tours/services';
 import useDBModel from './tours/useDBModel';
+import understandingMonorepo from './tours/understandingMonorepo';
 
 /*
  * Creates a new directory called .tours in the root directory of the project.
@@ -31,6 +32,7 @@ async function main() {
 			services(),
 			addNewService(),
 			createNewPackage(),
+			understandingMonorepo(),
 		]);
 
 		fileNames.forEach(async (fileName, index) => {
