@@ -1,0 +1,26 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Running the Project",
+  "steps": [
+    {
+      "title": "Codetours extension tutorial",
+      "description": "## Codetours extension tutorial\n\n- To use Codetours extension in the best way possible use please turn on this setting [link](command:workbench.action.openSettings?%22Comments%3A%20Max%20Height%22)\n\n- To run any command, click on the command and it will run in a **codetour** terminal\n- Set default nodejs version to 14 while using nvm for commands to work correclty\n\n>> nvm alias default 14\n\n- To start codetour use **ctrl+shift+p** and type **start tour**"
+    },
+    {
+      "title": "Interactive Tutorial to setup the project",
+      "description": "The officials documentation to install Rocket.Chat can be found be [link](https://developer.rocket.chat/v1/docs/server-environment-setup). This tour is an interactive guide only for **WINDOWS** user using **WSL**.[docs](https://developer.rocket.chat/v1/docs/windows-10). If you are stuck follow this\n\nFirst of check if you are inside the WSL shell\n>> lsb_release -a\n\nshould give an output like this\n```bash\nNo LSB modules are available.\nDistributor ID: Ubuntu\nDescription:    Ubuntu 22.04.4 LTS\nRelease:        22.04\nCodename:       jammy\n```\nNow follow these commands\n>> sudo apt-get update && sudo apt-get dist-upgrade -y\n\n>> sudo apt-get install build-essential python3 make g++\n\nInstall node 14 using nvm by following [docs](https://github.com/nvm-sh/nvm)\n\nCheck nvm and node version\n>> command -v nvm && node -v\n\nshould give an output like this\n\n```bash\nnvm\nv14.xx.x\n```\nSet node 14 as default (very imporant for **tours scripts** to work correctly)\n>> nvm alias default 14\n\n>> curl https://install.meteor.com/ | sh\n\n>> npm install --global yarn\n\nAssuming that your are already at the root level of the directory\n\n>> yarn\n\n>> yarn dsv\n\nIf everything went well, you should see a screen like this\n\n```bash\n +-----------------------------------------------+\n |                 SERVER RUNNING                |\n +-----------------------------------------------+\n |                                               |\n |  Rocket.Chat Version: 6.7.0-develop           |\n |       NodeJS Version: 14.21.4 - x64           |\n |      MongoDB Version: 7.0.5                   |\n |       MongoDB Engine: wiredTiger              |\n |             Platform: linux                   |\n |         Process Port: 25523                   |\n |             Site URL: http://localhost:3000/  |\n |     ReplicaSet OpLog: Enabled                 |\n |          Commit Hash: 1c2f31387d              |\n |        Commit Branch: codetours_tours         |\n |                                               |\n+-----------------------------------------------+\n```\n\nNote the the values will be different but you must be able to access the Rocket.Chat server in **Site URL**"
+    },
+    {
+      "title": "Debugging Tips/Tricks",
+      "description": "## Here we will learn various debugging tips and tricks making your life easy as a Rocket.Chat contributor\n\n### Lets take an example of debugging an issue when a message is send\n\n- It is a recommendation to use **(going into apps/meteor and using \"yarn run debug\" )**\n>> cd apps/meteor &&  yarn run debug && cd ../..\n\nto run the project instead of **yarn dsv**. We will know the reason later in the guide.\n\n- We will learn how to use chrome dev tools to our advantage\n\n- Install [react-dev-tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?pli=1) in your chrome browser\n\n- Since you are new to the codebase and dont know where the corresponding frontend and backend files are, lets start from first principals and try to find the component responsible for rendering the message composer.(we are trying to find all the files responsible for sending a message)"
+    },
+    {
+      "title": "Client Side Debugging 1",
+      "description": "- Open react-dev tools and click here\n![](https://res.cloudinary.com/dty2rgx6f/image/upload/v1721317438/Codetours/Onboarding/a63069dc-25a4-483b-ad62-d3841c6344d3.png)\n\n- Now click here in the browser where rocket.chat is running\n![](https://res.cloudinary.com/dty2rgx6f/image/upload/v1721317531/Codetours/Onboarding/de746d98-41c4-42b6-85db-7514ef11fe10.png)\n\nYou might ask, we wanted to debug a message bug why are we doing this. See we need to find the functions responsible for that bug, and inside a codebase of hundreds of lines you can easily be lost, so we go step by step.\n\n- Now you can see the react components rendering our message-composer, the starting point where sending messages happens.\n![](https://res.cloudinary.com/dty2rgx6f/image/upload/v1721317705/Codetours/Onboarding/5e17c7b0-b798-46c9-abd7-9f9008ab4067.png)\n\nGo to [RoomBody.tsx](./apps/meteor/client/views/room/body/RoomBody.tsx).Now you have a file from where you should keep digging in.\n\n- Now to dig in further, either commenting out components or repeat the above steps"
+    },
+    {
+      "title": "Client Side Debugging 2",
+      "description": ""
+    }
+  ]
+}
