@@ -18,7 +18,7 @@ export default async function createEndPoint() {
 			file: 'apps/meteor/app/api/server/v1/chat.ts',
 			description:
 				"## Example Endpoint for sending Message\n\n#### Visit [here](https://developer.rocket.chat/reference/api/rest-api/endpoints/chat-endpoints/send-message) for Official documentations for sendMessage REST endpoint.\n\n### Here we have \n```\nAPI.v1.addRoute(\n  'route.routeName', // This is the endpoint where request would be sent for example - 'chat.sendMessage'\n  { authRequired: true }, // Here is authRequired is true then user requires to enter their Auth Tokens\n    {async post(){ // This is the method call, Here we are sending message hence it requires post method\n        <!-- Other Operations -->\n    return API.v1.success(); // At the end if everything is successfull a success message is recieved\n    },\n  },\n);\n```\n\n#### Let us Understand What is *API.v1* .",
-			searchString: 'chat.starMessage',
+			searchString: 'chat.sendMessage',
 		}),
 		createStep({
 			file: 'apps/meteor/app/api/server/api.ts',

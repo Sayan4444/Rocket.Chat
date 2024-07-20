@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
-  "title": "Rocket.Chat Onboarding",
+  "title": "11 - Rocket.Chat Onboarding",
   "steps": [
     {
       "title": "Codetours extension tutorial",
@@ -29,6 +29,20 @@
     {
       "title": "Server Side Debugging 2",
       "description": "- Lets take an example from our previous issue of *sending a message*  and set up a break point\n\n- If follow the above steps well, you can easily find out that inside this [this file](./apps/meteor/app/lib/server/methods/sendMessage.ts), this is the first server side function to send a message\n\n```javascript\nMeteor.methods<ServerMethods>({\n\tasync sendMessage(message, previewUrls) {\n\t\tcheck(message, Object);\n```\n\n- Now find the same and setup a break point, follow the same previos steps to see, how the code flow works.\n\n![](https://res.cloudinary.com/dty2rgx6f/image/upload/v1721396309/Codetours/Onboarding/3c75e212-5320-4385-bf2e-839dae4e331e.png)"
+    },
+    {
+      "title": "VsCode Shortcuts",
+      "description": "#### These are some curated lists of vscode shortcuts which you should frequently use for a codebase as big as rocket.chat\n\nNote: This is not an exhaustive guide but just to say you must use these to make your life easy",
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 48
+        },
+        "end": {
+          "line": 3,
+          "character": 51
+        }
+      }
     }
   ]
 }

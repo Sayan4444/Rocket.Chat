@@ -54,7 +54,7 @@
     {
       "file": "apps/meteor/client/views/room/composer/messageBox/MessageBox.tsx",
       "description": "## Message Input \n\n- The MessageComposerInput component plays a crucial role in handling user inputs within the message composer. It is responsible for capturing various types of inputs and encompasses multiple associated actions.\n\n#### The MessageComposerInput component enables users to interact with the message composer through different actions, such as:\n\n1. **Typing and Editing**: Users can enter and edit text within the composer input field.\n\n2. **Formatting**: It may support various formatting options like bold, italic, bullet points, etc., allowing users to apply formatting to their messages.\n\n3. **Mentions**: Users can mention specific individuals or groups within the message by using the appropriate syntax or by selecting them from a list.\n\n4. **Emojis**: It may provide an emoji picker or support emoji shorthand, allowing users to insert emojis into their messages.\n\n5. **Attachments**: Users can attach files or media to their messages, such as images, documents, or videos.",
-      "line": 373
+      "line": 402
     },
     {
       "file": "apps/meteor/client/views/room/composer/messageBox/MessageBox.tsx",
