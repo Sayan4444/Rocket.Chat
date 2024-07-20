@@ -32,15 +32,15 @@
     },
     {
       "title": "VsCode Shortcuts",
-      "description": "#### These are some curated lists of vscode shortcuts which you should frequently use for a codebase as big as rocket.chat\n\nNote: This is not an exhaustive guide but just to say you must use these to make your life easy",
+      "description": "#### These are some curated lists of vscode shortcuts which you should frequently use for a codebase as big as rocket.chat\n\n- ## Search for something unique over the codebase\n(Example-Like you remember a component name but forgot where its implemented)\n\n![](https://res.cloudinary.com/dty2rgx6f/image/upload/v1721495130/Codetours/Onboarding/ebb2d6f6-186b-4cb7-852d-ad0e4021cb02.png)\n\n- ## Searching a file or folder by its name\n\nPress **ctrl+p** and type the filename to search a file or foldername and add a '/' to the end to search a folder\n\n(Example use **pinmessagemodal** to search for the .tsx file but **pinmessagemodal/** to search for the respective folder\n)\n\n- ## Vscode code navigation features\nRight click on any variable and you can see options such as \n\n![](https://res.cloudinary.com/dty2rgx6f/image/upload/v1721498119/Codetours/Onboarding/1ff685b3-f167-42a7-b188-8e4e9fbeeb9c.png)\n\nUse these settings to your advantage.\n\n- ## Using LLM\n\nYou can use any LLM of your choice which is integrable to which vscode, it makes life a lot easy.\n\nNote: This is not an exhaustive guide but just to say you must use these to make your life easy",
       "selection": {
         "start": {
-          "line": 3,
-          "character": 48
+          "line": 12,
+          "character": 2
         },
         "end": {
-          "line": 3,
-          "character": 51
+          "line": 13,
+          "character": 1
         }
       }
     }

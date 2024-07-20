@@ -61,9 +61,8 @@
       }
     },
     {
-      "file": "apps/meteor/package.json",
-      "description": "## Meteor.js\n\nSince our main project is meteor.js, so its important to understand how its operating and what scripts it presents to use\n\nTo try out the scripts with me, cd into the current folder\n>> cd apps/meteor\n\n\n\n### Scripts\n\n- **start** Starts the meteor development server",
-      "line": 15
+      "directory": "apps/meteor",
+      "description": "## Meteor.js\n\nSince our main project is meteor.js, its important to have a basic understanding how meteor.js works. Its advisable to read the [docs](https://docs.meteor.com/) and to experiment by creating a basic meteor project from scratch.\n\n- Any folder with the name **client** will have client side code and the code can be accessable inside the browser.\n- Any folder with the name **server** will have server side code and the code will only run inside the server."
     }
   ]
 }
