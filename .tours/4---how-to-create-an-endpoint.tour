@@ -53,7 +53,7 @@
       "line": 32
     },
     {
-      "title": "Same core code",
+      "title": "REST-API vs METEOR methods - Same internal code",
       "description": "### Its important to note that both REST API and METEOR end-points are just different entry points to the process of sending a message while they execute the same core functions internally.(MOST OF THE CASES)\n\nThis is evident as you can see yourself they call the same function **executeSendMessage**.\n\n### REST API\n\n``` javascript\nAPI.v1.addRoute(\n\t'chat.sendMessage',\n\t\t\t.......................................................\n\t\t\tconst sent = await executeSendMessage(this.userId, this.bodyParams.message as Pick<IMessage, 'rid'>, this.bodyParams.previewUrls);\n\t\t\t.......................................................\n```\n\n### METEOR METHOD\n\n``` javascript\nMeteor.methods<ServerMethods>({\n\tasync sendMessage(message, previewUrls) {\n            .......................................................\n\t\t\treturn await executeSendMessage(uid, message, previewUrls);\n            .......................................................\n});\n```"
     }
   ]
