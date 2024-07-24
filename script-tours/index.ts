@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { fileNames } from './utils';
+import { slugify } from './utils';
 import repositoryOverview from './tours/repositoryOverview';
 import createDBModel from './tours/createDBModel';
 import addNewService from './tours/addNewService';
@@ -33,13 +33,13 @@ async function main() {
 			createNewPackage(),
 		]);
 
-		fileNames.forEach(async (fileName, index) => {
+		toursObjArray.forEach(async (tour, index) => {
 			const serialNumber = index + 1;
-			fileName = serialNumber + '---' + fileName;
-			toursObjArray[index].title = serialNumber + " - " + toursObjArray[index].title;
+			const fileName = serialNumber + '---' + slugify(tour.title) + '.tour';
+			tour.title = serialNumber + ' - ' + tour.title;
 
 			const newFile = path.join(newDir, fileName);
-			await fs.writeFile(newFile, JSON.stringify(toursObjArray[index], null, 2));
+			await fs.writeFile(newFile, JSON.stringify(tour, null, 2));
 		});
 		console.log('Tours created successfully');
 	} catch (error: any) {

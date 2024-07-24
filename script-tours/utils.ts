@@ -26,14 +26,11 @@ export async function createStep(stepObj: StepObj) {
 	}
 }
 
-export const fileNames = [
-	'repository-overview.tour',
-	'how-a-message-is-sent.tour',
-	'how-a-message-is-sent.tour',
-	'how-to-create-an-endpoint.tour',
-	'how-to-create-a-db-model.tour',
-	'how-to-use-a-db-model.tour',
-	'services.tour',
-	'how-to-add-a-new-service.tour',
-	'how-to-create-packages.tour',
-];
+export const slugify = (str:string) =>
+  str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
