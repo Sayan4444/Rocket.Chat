@@ -3,6 +3,10 @@
   "title": "5 - How to create a DB model",
   "steps": [
     {
+      "title": "Visualising the Database",
+      "description": "The mongodb database is running locally in port **3001**. So to connect to it, run the server and use the connection string\n\n```bash\nmongodb://localhost:3001\n```\n\nOne of the best way to visualise a mongodb database is using [mongodb compass](https://www.mongodb.com/products/tools/compass). You can install it locally or use any other tools according to your preference."
+    },
+    {
       "directory": "apps/meteor/server/models",
       "description": "## How to create a DB Model \n\n### Rocket.Chat server relies on MongoDB as its primary database to store crucial information such as chat messages, user data, system configurations, and other related data. MongoDB plays a vital role in maintaining and organizing the essential information that powers Rocket.Chat.\n\n### Files like assets, user files, images, and other media files are stored locally on the system running the server or over network services like Amazon S3, and WebDAV.\n\n### Let us explore and see how can anyone create a new Database model, Here I will be giving example of Messages model and how things inside it works."
     },
@@ -15,6 +19,12 @@
       "file": "apps/meteor/server/models/raw/Messages.ts",
       "description": "## MessagesRaw class\n\n- **To register a DB model in Rocket.Chat, it is necessary to create a corresponding class for that model. In our case, as we are creating the Messages Model, we need to define a class specifically for it. This class will serve as the blueprint for the Messages Model and will be used for registering and interacting with the corresponding data in the database.**\n\n- **In order to facilitate the management of the Messages Model in Rocket.Chat's database, we have a class called MessageRaw. This class extends the BaseRaw class and implements the IMessageModel interface, which we discussed earlier. By extending BaseRaw and implementing the IMessageModel interface, MessageRaw inherits necessary functionalities and ensures it adheres to the required structure and behavior of the Messages Model in Rocket.Chat.**",
       "line": 43
+    },
+    {
+      "file": "apps/meteor/server/models/raw/Messages.ts",
+      "description": "```javascript\nsuper(db, 'message', trash);\n```\n\nThe name of our mongodb collection will be **rocketchat_message**. You can open mongodb compass and check all its contents.",
+      "line": 45,
+      "title": "Collection name"
     },
     {
       "file": "apps/meteor/server/models/raw/Messages.ts",

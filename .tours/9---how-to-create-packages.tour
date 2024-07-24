@@ -27,7 +27,7 @@
     },
     {
       "directory": "packages/core-typings",
-      "description": "# Another Example of packages.\n\n### Since Rocket chat uses TypeScript it is really very important to have type definitions for type safety, hence all of the types in Rocket chat is described here\n\n### Again being a package it has an similar structure as the previuos one"
+      "description": "# Another Example of packages.\n\n### Since Rocket chat uses TypeScript it is really very important to have type definitions for type safety, hence all of the types in Rocket chat is described here\n\n### Again being a package it has an similar structure as the previous one"
     }
   ]
 }

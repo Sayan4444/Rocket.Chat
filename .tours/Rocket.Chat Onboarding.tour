@@ -4,7 +4,7 @@
   "steps": [
     {
       "title": "Codetours extension tutorial",
-      "description": "## Codetours extension tutorial\n\n- To use Codetours extension in the best way possible use please turn on this setting [link](command:workbench.action.openSettings?%22Comments%3A%20Max%20Height%22)\n\n- To run any command, click on the command and it will run in a **codetour** terminal\n- Set default nodejs version to 14 while using nvm for commands to work correclty\n\n>> nvm alias default 14\n\n- To start codetour use **ctrl+shift+p** and type **start tour**"
+      "description": "## Codetours extension tutorial\n\n- To use Codetours extension in the best way possible, please turn on this setting [link](command:workbench.action.openSettings?%22Comments%3A%20Max%20Height%22)\n\n- To run any command, click on the command and it will run in a **codetour** terminal\n- Set default nodejs version to 14 while using nvm for commands to work correclty\n\n>> nvm alias default 14\n\n- To start codetour use **ctrl+shift+p** and type **start tour**"
     },
     {
       "title": "Interactive Tutorial to setup the project",
@@ -12,7 +12,7 @@
     },
     {
       "title": "Debugging Tips/Tricks",
-      "description": "## Here we will learn various debugging tips and tricks making your life easy as a Rocket.Chat contributor\n\n#### Lets take an example of debugging an *issue when a message is send*\n\n\n- It is a recommendation to use **(going into apps/meteor and using \"yarn run debug\" )**\n>> cd apps/meteor &&  yarn run debug && cd ../..\n\nto run the project instead of **yarn dsv**. We will know the reason later in the guide.\n\n- We will learn how to use chrome dev tools to our advantage\n\n- Install [react-dev-tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?pli=1) in your chrome browser\n\n- Since you are new to the codebase and dont know where the corresponding frontend and backend files are, lets start from first principals and try to find the component responsible for rendering the message composer.(we are trying to find all the files responsible for sending a message)"
+      "description": "## Here we will learn various debugging tips and tricks making your life easy as a Rocket.Chat contributor\n\n#### Lets take an example of debugging an *issue when a message is send*\n\n\n- It is a recommended to use **(going into apps/meteor and using \"yarn run debug\" )**\n\n>> cd apps/meteor &&  yarn run debug && cd ../..\n\nto run the project instead of **yarn dsv**. We will know the reason later in the guide.\n\n- We will learn how to use chrome dev tools to our advantage\n\n- Install [react-dev-tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?pli=1) in your chrome browser\n\n- Since you are new to the codebase and dont know where the corresponding frontend and backend files are, lets start from first principals and try to find the component responsible for rendering the message composer.(we are trying to find all the files responsible for sending a message)"
     },
     {
       "title": "Client Side Debugging 1",

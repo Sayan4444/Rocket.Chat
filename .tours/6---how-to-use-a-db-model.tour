@@ -18,7 +18,7 @@
     },
     {
       "file": "apps/meteor/app/lib/server/functions/loadMessageHistory.ts",
-      "description": "## loadMessageHistory function\n\n### Here we import Messages and Rooms DB models from @rocket.chat/models and we will furhter use them in our function\n\n",
+      "description": "## loadMessageHistory function\n\n### Here we import Messages and Rooms DB models from @rocket.chat/models and we will further use them in our function\n\n",
       "line": 2
     },
     {
