@@ -16,7 +16,7 @@ export type ISteps = {
     uri?: string,
     line?: number,
     pattern?: string,
-    title?: string,
+    title: string,
     commands?: string[],
     view?: string,
     searchString?: string,

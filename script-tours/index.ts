@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { slugify } from './utils';
-import { repositoryOverview } from './tours/index';
+import { rocketchatOnboarding, repositoryOverview } from './tours/index';
 import { ITours } from './types';
 
 /*
@@ -15,7 +15,8 @@ async function main() {
 		const newDir = path.join(baseDir, '.tours');
 		await fs.mkdir(newDir, { recursive: true });
 		const toursObjArray = await Promise.all([
-			repositoryOverview(),
+			rocketchatOnboarding(),
+			// repositoryOverview(),
 			// messageSentClient(),
 			// messageSentServer(),
 			// createEndPoint(),
