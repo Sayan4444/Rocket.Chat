@@ -1,15 +1,8 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { slugify } from './utils';
-import repositoryOverview from './tours/repositoryOverview';
-import createDBModel from './tours/createDBModel';
-import addNewService from './tours/addNewService';
-import createEndPoint from './tours/createEndPoint';
-import createNewPackage from './tours/createNewPackage';
-import messageSentClient from './tours/messageSentClient';
-import messageSentServer from './tours/messageSentServer';
-import services from './tours/services';
-import useDBModel from './tours/useDBModel';
+import { repositoryOverview } from './tours/index';
+import { ITours } from './types';
 
 /*
  * Creates a new directory called .tours in the root directory of the project.
@@ -23,15 +16,15 @@ async function main() {
 		await fs.mkdir(newDir, { recursive: true });
 		const toursObjArray = await Promise.all([
 			repositoryOverview(),
-			messageSentClient(),
-			messageSentServer(),
-			createEndPoint(),
-			createDBModel(),
-			useDBModel(),
-			services(),
-			addNewService(),
-			createNewPackage(),
-		]);
+			// messageSentClient(),
+			// messageSentServer(),
+			// createEndPoint(),
+			// createDBModel(),
+			// useDBModel(),
+			// services(),
+			// addNewService(),
+			// createNewPackage(),
+		]) as ITours[];
 
 		toursObjArray.forEach(async (tour, index) => {
 			const serialNumber = index + 1;
