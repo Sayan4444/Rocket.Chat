@@ -17,7 +17,7 @@ async function main() {
 		const toursObjArray = await Promise.all([
 			rocketchatOnboarding(),
 			understandingMonorepo(),
-			// repositoryOverview(),
+			repositoryOverview(),
 			// messageSentClient(),
 			// messageSentServer(),
 			// createEndPoint(),
