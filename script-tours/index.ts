@@ -29,7 +29,8 @@ async function main() {
 		]) as ITours[];
 
 		toursObjArray.forEach(async (tour, index) => {
-			const serialNumber = index + 1;
+			const serialNumber = (index + 1).toString().padStart(2, '0');
+
 			const fileName = serialNumber + '---' + slugify(tour.title) + '.tour';
 			tour.title = serialNumber + ' - ' + tour.title;
 
