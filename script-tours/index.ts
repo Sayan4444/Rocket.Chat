@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { slugify } from './utils';
-import { rocketchatOnboarding, understandingMonorepo, repositoryOverview, messageSentClient } from './tours/index';
+import { rocketchatOnboarding, understandingMonorepo, repositoryOverview, messageSentClient, messageSentServer } from './tours/index';
 import { ITours } from './types';
 
 /*
@@ -19,7 +19,7 @@ async function main() {
 			understandingMonorepo(),
 			repositoryOverview(),
 			messageSentClient(),
-			// messageSentServer(),
+			messageSentServer(),
 			// createEndPoint(),
 			// createDBModel(),
 			// useDBModel(),
