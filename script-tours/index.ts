@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { slugify } from './utils';
-import { rocketchatOnboarding, understandingMonorepo, repositoryOverview, messageSentClient, messageSentServer, createEndPoint, createDBModel, useDBModel } from './tours/index';
+import { rocketchatOnboarding, understandingMonorepo, repositoryOverview, messageSentClient, messageSentServer, createEndPoint, createDBModel, useDBModel, services, addNewService, createNewPackage } from './tours/index';
 import { ITours } from './types';
 
 /*
@@ -23,9 +23,9 @@ async function main() {
 			createEndPoint(),
 			createDBModel(),
 			useDBModel(),
-			// services(),
-			// addNewService(),
-			// createNewPackage(),
+			services(),
+			addNewService(),
+			createNewPackage(),
 		]) as ITours[];
 
 		toursObjArray.forEach(async (tour, index) => {
