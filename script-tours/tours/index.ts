@@ -7,7 +7,7 @@ export { default as messageSentServer } from './messageSentServer';
 
 export { default as createEndPoint } from './createEndPoint';
 
-// export { default as createDBModel } from './createDBModel';
+export { default as createDBModel } from './createDBModel';
 // export { default as useDBModel } from './useDBModel';
 
 // export { default as addNewService } from './addNewService';

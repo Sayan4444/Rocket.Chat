@@ -1,7 +1,7 @@
 import { ISteps, ITours } from '../types';
 import { createStep } from '../utils';
 
-export default async function messageSentClient() {
+export default async function messageSentClient(): Promise<ITours> {
 	const tourName = 'How a Message is sent (Client side)';
 	const baseDir = 'apps/meteor/client/views/room';
 

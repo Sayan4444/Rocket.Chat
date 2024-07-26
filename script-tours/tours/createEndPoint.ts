@@ -1,7 +1,7 @@
 import { ISteps, ITours } from '../types';
 import { createStep } from '../utils';
 
-export default async function createEndPoint() {
+export default async function createEndPoint(): Promise<ITours> {
 	const tourName = "How to Create an Endpoint";
 	const stepsArray: ISteps[] = [
 		{

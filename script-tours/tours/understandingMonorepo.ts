@@ -1,7 +1,7 @@
 import { ISteps, ITours } from '../types';
 import { createStep } from '../utils';
 
-export default async function understandingMonorepo() {
+export default async function understandingMonorepo(): Promise<ITours> {
     const tourName = 'Understanding Monorepo Structure of Rocket.Chat';
     const stepsArray: ISteps[] = [
         {

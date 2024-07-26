@@ -1,7 +1,7 @@
 import { ISteps, ITours } from '../types';
 import { createStep } from '../utils';
 
-export default async function messageSentServer() {
+export default async function messageSentServer(): Promise<ITours> {
 	const tourName = 'How a Message is sent (The Backend)';
 	const stepsArray: ISteps[] = [
 		{
