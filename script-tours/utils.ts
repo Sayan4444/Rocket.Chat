@@ -16,7 +16,8 @@ export async function createStep(stepObj: ISteps, tourName: string) {
 			return { file, description, line: i + 1 + offset, title };
 		}
 	}
-	throw new Error(`Search string "${searchString}" not found in file ${file} \nTours : ${tourName}, \nStep : ${title}`);
+	console.log(`Search string "${searchString}" not found in file ${file} \nTours : ${tourName}, \nStep : ${title} \n`);
+	return { file, description, line: 1, title };
 }
 
 export const slugify = (str: string) =>
