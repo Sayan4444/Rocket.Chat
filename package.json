@@ -14,7 +14,7 @@
 		"lint": "turbo run lint",
 		"storybook": "yarn workspace @rocket.chat/meteor run storybook",
 		"fuselage": "./fuselage.sh",
-		"tours": "rm -rf .tours && ts-node script-tours/index.ts"
+		"tours": "[ -d ./RC.Guided.Tours ] || git clone ${1:-https://github.com/Sayan4444/RC.Guided.Tours} && cd RC.Guided.Tours && (yarn build && yarn tours)"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.26.2",
@@ -28,7 +28,8 @@
 		"packages/*",
 		"ee/apps/*",
 		"ee/packages/*",
-		"apps/meteor/ee/server/services"
+		"apps/meteor/ee/server/services",
+		"RC.Guided.Tours"
 	],
 	"repository": {
 		"type": "git",

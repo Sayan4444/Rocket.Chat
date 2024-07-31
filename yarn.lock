@@ -18702,6 +18702,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"codetours@workspace:RC.Guided.Tours":
+  version: 0.0.0-use.local
+  resolution: "codetours@workspace:RC.Guided.Tours"
+  dependencies:
+    typescript: ~5.3.2
+  languageName: unknown
+  linkType: soft
+
 "collapse-white-space@npm:^1.0.2":
   version: 1.0.6
   resolution: "collapse-white-space@npm:1.0.6"
