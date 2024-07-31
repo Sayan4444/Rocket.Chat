@@ -14,7 +14,7 @@
 		"lint": "turbo run lint",
 		"storybook": "yarn workspace @rocket.chat/meteor run storybook",
 		"fuselage": "./fuselage.sh",
-		"tours": "[ -d ./RC.Guided.Tours ] || git clone ${1:-https://github.com/RocketChat/RC.Guided.Tours} && cd RC.Guided.Tours && (yarn build && yarn tours)"
+		"tours": "./tours.sh"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.26.2",
