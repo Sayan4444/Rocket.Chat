@@ -54,3 +54,4 @@ yarn-error.log*
 # tours
 .tours
 RC.Guided.Tours
+tours.sh

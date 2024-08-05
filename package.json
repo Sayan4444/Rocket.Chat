@@ -13,8 +13,7 @@
 		"dsv": "turbo run dsv --filter=@rocket.chat/meteor...",
 		"lint": "turbo run lint",
 		"storybook": "yarn workspace @rocket.chat/meteor run storybook",
-		"fuselage": "./fuselage.sh",
-		"tours": "./tours.sh"
+		"fuselage": "./fuselage.sh"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.26.2",
